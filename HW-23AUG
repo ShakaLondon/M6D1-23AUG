@@ -1,0 +1,121 @@
+CREATE TABLE IF NOT EXISTS 
+author(
+	author_id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+	name VARCHAR(50) NOT NULL,
+	last_name VARCHAR(50) NOT NULL,
+	birth_year NUMERIC(4) NOT NULL,
+	country VARCHAR(50) NOT NULL
+	);
+INSERT INTO
+    author (
+	name,
+	last_name,
+	birth_year,
+	country)
+VALUES (
+	'Dan',
+	'Brown',
+	'1986',
+	'United Kingdom'),
+	('Agatha',
+	'Christie',
+	'1968',
+	'Germany'),
+	('Paulo', 
+	 'Coelho',
+	'1923',
+	'Australia'),
+	('John', 
+	 'Grisham',
+	'1946',
+	'Brazil'),
+	('Stephen', 
+	 'King',
+	'1972',
+	'India'),
+	('Haruki', 
+	 'Murakami',
+	'1934',
+	'Japan'),
+	('James', 
+	 'Patterson',
+	'1967',
+	'France');
+INSERT INTO
+    authorbooks (
+	name,
+	category,
+	cover,
+	author,
+	published_at)
+VALUES (
+	'Angels and Demons',
+	'Thriller',
+	'https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9780743493468/angels-demons-9780743493468_hr.jpg',
+	'Dan Brown',
+	'2000'),
+	('Da Vinci Code',
+	'Thriller',
+	'https://images-na.ssl-images-amazon.com/images/I/A15FFg6aNLL.jpg',
+	'Dan Brown',
+	'2003'),
+	('Origin',
+	'Thriller',
+	'https://images-na.ssl-images-amazon.com/images/I/91ZeWa2jVaL.jpg',
+	'Dan Brown',
+	'2017'),
+	('The Alchemist', 
+	 'Fantasy Fiction',
+	 'https://images-na.ssl-images-amazon.com/images/I/71aFt4+OTOL.jpg',
+	 'Paulo Coelho',
+	'1988'),
+	('Inferno', 
+	 'Fantasy Fiction',
+	 'https://images-na.ssl-images-amazon.com/images/I/91Bx8Fqx1pL.jpg',
+	 'Paulo Coelho',
+	'2013'),
+	('The Pilgrimage', 
+	 'Fantasy Fiction',
+	 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1390304912l/2759537.jpg',
+	 'Paulo Coelho',
+	'1987'),
+	('A time to kill', 
+	 'Thriller',
+	 'https://images-na.ssl-images-amazon.com/images/I/610bxT5yTIL.jpg',
+	 'John Grisham',
+	'1989'),
+	('The Firm', 
+	 'Thriller',
+	 'https://images-na.ssl-images-amazon.com/images/I/41h9FOLjYJL._SX324_BO1,204,203,200_.jpg',
+	 'John Grisham',
+	'1991'),
+	('The Client', 
+	 'Thriller',
+	 'https://images-na.ssl-images-amazon.com/images/I/41WMZeIf-KL._SX326_BO1,204,203,200_.jpg',
+	 'John Grisham',
+	'1989'),
+	('IT', 
+	 'Thriller',
+	'https://images-na.ssl-images-amazon.com/images/I/61zG02r3qCL.jpg',
+	'Stephen Fry',
+	'2017'),
+	('The Shining', 
+	 'Thriller',
+	'https://cdn.waterstones.com/bookjackets/large/9781/4447/9781444720723.jpg',
+	'Stephen Fry',
+	'1977'),
+	('The Stand', 
+	 'Thriller',
+	'https://static.wikia.nocookie.net/stephenking/images/4/4a/The_Stand_cover_2.jpg/revision/latest?cb=20201216200750',
+	'Stephen Fry',
+	'1978');
+	SELECT * FROM authorbooks WHERE category='Thriller';
+	SELECT DISTINCT category FROM authorbooks;
+	SELECT * FROM authorbooks WHERE category LIKE '%Paul%' OR name LIKE '%Paul%' OR author LIKE '%Paul%';
+	SELECT published_at FROM authorbooks;
+	SELECT COUNT(book_id) FROM authorbooks;
+	SELECT * FROM author ORDER BY birth_year DESC;
+	DELETE FROM author WHERE country='Brazil';
+	DELETE FROM authorbooks WHERE category='Sci-Fi';
+	DELETE FROM author WHERE last_name LIKE 'H%';
+	
